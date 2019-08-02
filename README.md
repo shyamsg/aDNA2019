@@ -1,2 +1,2 @@
-Archaeomics Course 2019
+aDNA Course Copenhagen 2019
 ----
