@@ -106,6 +106,20 @@ How do you interpret these results? Any that did not make sense to you?
 Now let us read this into R and plot it.
 ```
 R
-dstats = read.table("FS.dstat.txt", as.is=T)
-colnames(dstats) = c("")
+dstats = read.table("FS.dstat.txt", as.is=T)[,c(1:6)]
+colnames(dstats) = c("H1", "H2", "H3", "O", "D", "Z")
+dstats$SE = abs(dstats$D/dstats$Z)
+dstats$LOWER = dstats$D - 3*dstats$SE
+dstats$UPPER = dstats$D + 3*dstats$SE
+dstats = dstats[order(dstats$Z),]
+npops=nrow(dstats)
+par(mar=c(5,10,4,2)+.1)
+plot(dstats$D, 1:npops, pch=19, ylim=c(0,npops+1), axes=F, frame.plot=T, ylab="", xlab="D statistic")
+sapply(1:npops, function(x) {
+  lines(y=c(x, x), x=c(dstats$LOWER[x], dstats$UPPER[x]))
+  })
+abline(v=0, col="gray", lty=2)
+axis(1)
+axis(2, at=c(1:npops), labels=dstats$H3, las=2)
 ```
+How would you interpret this? 
