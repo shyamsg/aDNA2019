@@ -1,0 +1,11 @@
+French  Sardinian        Ami Ju_hoan_North      0.0048      5.526   4860   4814 115912
+French  Sardinian Europe_LNBA Ju_hoan_North      0.0058      7.565   4961   4904 115863
+French  Sardinian        Han Ju_hoan_North      0.0057      7.070   4871   4815 115912
+French  Sardinian Italian_North Ju_hoan_North     -0.0031     -4.175   4907   4937 115912
+French  Sardinian  Karitiana Ju_hoan_North      0.0129     13.641   4943   4818 115912
+French  Sardinian      Mayan Ju_hoan_North      0.0109     12.677   4925   4820 115912
+French  Sardinian      Mbuti Ju_hoan_North     -0.0005     -0.759   3903   3907 115912
+French  Sardinian   Orcadian Ju_hoan_North      0.0050      6.482   4955   4905 115912
+French  Sardinian     Papuan Ju_hoan_North      0.0052      5.785   4795   4745 115912
+French  Sardinian Steppe_EMBA Ju_hoan_North      0.0167     20.404   5005   4840 115846
+French  Sardinian     Yoruba Ju_hoan_North     -0.0011     -1.691   4178   4187 115912
