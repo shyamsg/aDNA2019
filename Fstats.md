@@ -122,4 +122,4 @@ abline(v=0, col="gray", lty=2)
 axis(1)
 axis(2, at=c(1:npops), labels=dstats$H3, las=2)
 ```
-How would you interpret this? 
+How would you interpret this? What is going on with the South American populations?
