@@ -20,7 +20,7 @@ indivoutname:    MYDATA/AncientModern.ind
 ```
 Now we can go back to the command line and run convertf.
 ```
-$ convertf -p plink2geno.par
+convertf -p plink2geno.par
 ```
 Finally, before we run any further analysis, we need to change the format of our ind file
 so that other programs can parse it properly.
@@ -76,5 +76,36 @@ for pop1 in $(sort [YOUR DATA DIRECTORY]/PopNames.txt| uniq | grep -v French); d
       echo "$pop1 $pop2 French"
     fi
   done
-done > Europe_LNBA.admixF3.poplist
+done > French.admixF3.poplist
+```
+
+We already know the next steps, viz., create a par file, and then run `qp3Pop`. What should the par file look like? And the qp3Pop command?
+
+Now, let us interpret these results. Are there any significantly negative f3 values? Now, try it with the Sardinian as the target population.
+
+## D statistic (ABBA-BABA test)
+Finally, let us try computing some four population statistics. The input files are very similar to the three population case. The only change is the poplist file, which now contains 4 populations in this tree (((H1, H2), H3), O), where H1 and H2 are the 2 populations we are testing for admixture with H3, and O is the outgroup.
+
+In this example, we will focus on the French and the Sardinian populations again as H1 and H2. We will use the Ju'Hoan as the outgroup and all the other populations as H3. Let us now create this poplist file.
+```
+for pop in Ami Europe_LNBA Han Italian_North Karitiana Mayan Mbuti Orcadian Papuan Steppe_EMBA Yoruba; do
+  echo "French Sardinian $pop Ju_hoan_North"
+done > FS.dstat.poplist
+```
+Let us repeat our drill of creating a _par_ file. When we are ready with the _par_ file, we want to run `qpDstat` and save its output to a log file.  
+```
+qpDstat -p FS.dstat.par > FS.dstat.log
+```
+
+Let us extract the result from the output of `qpDstat`, and then examine it.
+```
+grep result FS.dstat.log | cut -f2 -d: | sed "s/^ \+//" > FS.dstat.txt
+```
+How do you interpret these results? Any that did not make sense to you?
+
+Now let us read this into R and plot it.
+```
+R
+dstats = read.table("FS.dstat.txt", as.is=T)
+colnames(dstats) = c("")
 ```
