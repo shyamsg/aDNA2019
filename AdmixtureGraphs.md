@@ -58,3 +58,75 @@ treemix -i AncientModern.treemix.gz -o AM.m3 -k 500 -root Ju_hoan_North,Yoruba,M
 Now plot the trees and check the residuals for the tree with 1 migration edge. What is the first migration edge you get?
 
 Do the same for 2 and 3 migration edges. Do the migration edges make sense? What is happening to the residuals?
+
+## Admixture graphs using f-statistics : qpGraph
+Now that we have made admixture graphs using correlations of allele frequencies between populations, we can also explore the construction of admixture graphs using F statistics. A package that allows us to do this is called qpGraph. To run qpGraph, we need a par file, and a input graph file. Let us first construct the par file. We have met most of these parameters already.
+```
+DIR:   [YOUR DATA DIRECTORY]
+indivname:       DIR/AncientModern.ind  
+snpname:         DIR/AncientModern.snp       
+genotypename:    DIR/AncientModern.geno  
+blgsize:        0.005
+lsqmode:       YES
+diag:          .0001
+hires:         YES
+```
+
+Now let us build a graph from the treemix tree.
+
+```
+root     R
+label    Ju_hoan_North JhN  
+## label lables populations (leaf nodes) here population is "Out"  vertex is "O"
+label    Mbuti   M      
+label    Yoruba  Y    
+label    Karitiana K   
+label    Mayan My
+label    Han H
+label    Ami A
+label    Papuan P
+label    French F
+label    Italian_North IN
+label    Sardinian S
+label    Orcadian O
+label    Europe_LNBA Elb
+label    Steppe_EMBA Sem
+## edge name q  R -> O
+edge aaa R Afr
+edge aab Afr Y
+edge aac Afr Afr2
+edge aad Afr2 M
+edge aae Afr2 JhN
+edge aaf R notA
+edge aag notA SA
+edge aah SA P
+edge aai SA Asian
+edge aaj Asian HA
+edge aak HA H
+edge aal HA A
+edge aam Asian SAm
+edge aan SAm K
+edge aao SAm My
+edge aap notA allEur    
+edge aaq allEur oldEur
+edge aar oldEur Elb
+edge aas oldEur Sem
+edge aat allEur modEur
+edge aau modEur O
+edge aav modEur FI
+edge aaw FI French
+edge aax FI I
+edge aay I S
+edge aaz I IN
+```
+
+Now we are ready to run `qpGraph` to generate our multiple population graph, assuming that the par file is called qpg.par and the graph file is called initGraph.txt
+```
+qpGraph -q qpg.par -g initGraph.txt -d multPopulation_noAdmixture.dot
+```
+Let us now plot the output graph and see what it looks like. Also, let us see where the poor fitting F statistics are.
+
+```
+dot -Tpdf < multPopulation_noAdmixture.dot > multPopulation_noAdmixture.pdf
+```
+What does that poor F-stat fit tell us? What component is missing? If we add an admixture edge, where would we add it?

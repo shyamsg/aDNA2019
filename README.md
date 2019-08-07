@@ -5,4 +5,4 @@ This repository contains the slides and exercises for the course material on F s
 1. F statistics slides
 2. [F statistics exercise notes](Fstats.md)
 3. Admixture graphs slides
-4. Admixture graphs exercise notes
+4. [Admixture graphs exercise notes](AdmixtureGraphs.md)
