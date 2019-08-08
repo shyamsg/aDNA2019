@@ -57,6 +57,11 @@ snpname:        [YOUR DATA DIRECTORY]/AncientModern.snp
 indivname:      [YOUR DATA DIRECTORY]/AncientModern.ind
 popfilename:    [YOUR DATA DIRECTORY]/Europe_LNBA.poplist
 ```
+
+Now let us run the F3 stats.
+```
+qp3Pop -p Europe_LNBA.f3.par
+```
 Now what do the results show? Do they make sense in terms of the populations?
 What conclusions can you draw from these results about the affinity of the European LNBA population?
 
