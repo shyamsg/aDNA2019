@@ -114,7 +114,7 @@ edge aas oldEur Sem
 edge aat allEur modEur
 edge aau modEur O
 edge aav modEur FI
-edge aaw FI French
+edge aaw FI F
 edge aax FI I
 edge aay I S
 edge aaz I IN
