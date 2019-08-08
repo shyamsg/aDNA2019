@@ -41,7 +41,7 @@ French
 Orcadian
 
 ```
-This file is located at /science/groupdirs-nfs/SCIENCE-SNM-Archaeo/2019/Day4/scripts/poporder.txt. Make a link to this file in your directories using `ln -s /science/groupdirs-nfs/SCIENCE-SNM-Archaeo/2019/Day4/scripts/poporder.txt .`. Now we are ready to visualize the residuals.
+This file is located at /science/groupdirs-nfs/SCIENCE-SNM-Archaeo/2019/Day4/scripts/poporder.txt. Make a link to this file in your directories using `ln -s /science/groupdirs-nfs/SCIENCE-SNM-Archaeo/2019/Day4/treemix/poporder.txt .`. Now we are ready to visualize the residuals.
 ```
 R
 source("/science/groupdirs-nfs/SCIENCE-SNM-Archaeo/2019/Day4/scripts/plotting_funcs.R")
@@ -122,7 +122,7 @@ edge aaz I IN
 
 Now we are ready to run `qpGraph` to generate our multiple population graph, assuming that the par file is called qpg.par and the graph file is called initGraph.txt
 ```
-qpGraph -q qpg.par -g initGraph.txt -d multPopulation_noAdmixture.dot
+qpGraph -p qpg.par -g initGraph.txt -d multPopulation_noAdmixture.dot
 ```
 Let us now plot the output graph and see what it looks like. Also, let us see where the poor fitting F statistics are.
 
